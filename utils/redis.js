@@ -46,7 +46,7 @@ class RedisClient {
 
     async get(key) {
         const ok = await this._ensureConnected();
-        //if (!ok) throw new Error('Redis client not connected');
+        if (!ok) throw new Error('Redis client not connected');
         return this.client.get(key);
     }
 
@@ -61,7 +61,7 @@ class RedisClient {
     }
 
     async del(key) {
-        const ok = this._ensureConnected();
+        const ok = await this._ensureConnected();
         if (!ok) throw new Error('Redis client not connected');
         return this.client.del(key);
     }
