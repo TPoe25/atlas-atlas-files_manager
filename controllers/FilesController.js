@@ -59,6 +59,7 @@ class FilesController {
       type,
       isPublic,
       parentId,
+      data: type --- "image" === type? fileUUID : null,
       ...(localPath && { localPath }),
     };
 

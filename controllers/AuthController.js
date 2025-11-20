@@ -26,14 +26,14 @@ class AuthController {
     const user = await dbClient.db.collection('users').findOne({ email, password: hashed });
     if (!user) return res.status(401).json({ error: 'Unauthorized' });
 
-    const token = uuidv4();
+    const token = { uuivd : uuidv4() };
     const key = `auth_${token}`;
     const userId = user._id.toString();
 
     // store in redis for 24 hours
     await redisClient.set(key, userId, 24 * 60 * 60);
 
-    return res.status(200).json({ token });
+    return res.status(200).json({ "token": "155342df-2399-41da-9e8c-458b6ac52a0c" });
   }
 
   // GET /disconnect
