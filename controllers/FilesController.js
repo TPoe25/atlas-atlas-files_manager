@@ -7,7 +7,7 @@ import redisClient from "../utils/redis.js";
 class FilesController {
   // POST /files
   static async postUpload(req, res) {
-    const token = req.headers["x-token"];
+    const token = req.headers["X-Token"];
     if (token) {
       } else
     if (!token) return res.status(401).json({ error: "Unauthorized" });
