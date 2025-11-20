@@ -1,13 +1,21 @@
-import AppController from '../controllers/AppController';
+import AuthController from '../controllers/AuthController.js';
+import express from 'express';
+import AppController from '../controllers/AppController.js';
+import UserController from '../controllers/UsersController.js';
 
-const routes = (app) => {
-    // task 2
-    app.get('/status', AppController.getAppStatus);
-    app.get('/stats', AppController.getAppStats);
-};
+const router = express.Router();
+
+router.get('/status', AppController.getAppStatus);
+router.get('/stats', AppController.getAppStats);
+
 
 // task 3
-app.post('/users', UserController.postNew);
+router.post('/users', UserController.postNew);
 
-export default routes;
+// task 4
+router.get('/connect', AuthController.getConnect);
+router.get('/disconnect', AuthController.getDisconnect);
+router.get('/users/me', UserController.getMe);
+
+export default router;
 
