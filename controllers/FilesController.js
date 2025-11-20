@@ -80,7 +80,7 @@ class FilesController {
 
   // GET /files
   static async getFiles(req, res) {
-    const token = req.headers["x-token"];
+    const token = req.headers['X-Token'];
     if (!token) return res.status(401).json({ error: "Unauthorized" });
 
     const userId = await redisClient.get(`auth_${token}`);
@@ -98,7 +98,7 @@ class FilesController {
 
   // GET /files
   static async getIndex(req, res) {
-    const token = req.headers["x-token"];
+    const token = req.headers['X-Token'];
     if (!token) return res.status(401).json({ error: "Unauthorized" });
 
     const userId = await redisClient.get(`auth_${token}`);
