@@ -1,3 +1,4 @@
+import FilesController from '../controllers/FilesController.js';
 import AuthController from '../controllers/AuthController.js';
 import express from 'express';
 import AppController from '../controllers/AppController.js';
@@ -16,6 +17,8 @@ router.post('/users', UserController.postNew);
 router.get('/connect', AuthController.getConnect);
 router.get('/disconnect', AuthController.getDisconnect);
 router.get('/users/me', UserController.getMe);
+router.post('/files', FilesController.postUpload);
+
 
 export default router;
 
